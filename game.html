@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Seagull Snack Attack</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class="scene game-scene">
+    <div class="sun"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <div class="sea">
+      <div class="wave wave-1"></div>
+      <div class="wave wave-2"></div>
+      <div class="wave wave-3"></div>
+    </div>
+    <div class="sand"></div>
+
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-row">
+        <span class="hud-label">Score</span>
+        <span id="score">0</span>
+      </div>
+      <div class="hud-row">
+        <span class="hud-label">Best</span>
+        <span id="best">0</span>
+      </div>
+      <div class="hud-row">
+        <span class="hud-label">Lives</span>
+        <span id="lives">❤❤❤</span>
+      </div>
+    </div>
+
+    <!-- Player seagull -->
+    <div id="player" class="seagull player">
+      <div class="body">
+        <div class="tail"></div>
+        <div class="wing wing-left"><div class="feather f1"></div><div class="feather f2"></div><div class="feather f3"></div></div>
+        <div class="wing wing-right"><div class="feather f1"></div><div class="feather f2"></div><div class="feather f3"></div></div>
+        <div class="head">
+          <div class="eye"></div>
+          <div class="beak"></div>
+        </div>
+        <div class="leg leg-left"><div class="foot"></div></div>
+        <div class="leg leg-right"><div class="foot"></div></div>
+      </div>
+    </div>
+
+    <!-- Falling items & effects land here -->
+    <div id="playfield"></div>
+
+    <!-- Overlays -->
+    <div id="start-overlay" class="overlay">
+      <div class="panel">
+        <h1>Seagull Snack Attack</h1>
+        <p class="subtitle">A little game made just for you</p>
+        <ul class="rules">
+          <li>🐟 Fish = <b>+10</b></li>
+          <li>🍟 Fries = <b>+25</b></li>
+          <li>⭐ Golden Star = <b>+100</b> & brief magnet</li>
+          <li>🦀 Crab = <b>–1 life</b></li>
+          <li>💣 Beach Ball = <b>–1 life</b></li>
+        </ul>
+        <p class="controls">
+          <b>Move:</b> ← → &nbsp;·&nbsp; <b>or:</b> A / D &nbsp;·&nbsp; <b>or:</b> drag / touch<br>
+          <b>Pause:</b> P &nbsp;·&nbsp; <b>Restart:</b> R
+        </p>
+        <button id="start-btn" class="btn">Start Dancing &amp; Catching!</button>
+        <a class="back-link" href="index.html">← back to the seaside</a>
+      </div>
+    </div>
+
+    <div id="pause-overlay" class="overlay hidden">
+      <div class="panel small">
+        <h2>Paused</h2>
+        <button id="resume-btn" class="btn">Resume</button>
+      </div>
+    </div>
+
+    <div id="over-overlay" class="overlay hidden">
+      <div class="panel">
+        <h2>Out of Lives!</h2>
+        <p class="final">Final score: <span id="final-score">0</span></p>
+        <p id="final-msg" class="subtitle"></p>
+        <button id="again-btn" class="btn">Play Again</button>
+        <a class="back-link" href="index.html">← back to the seaside</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
